@@ -12,7 +12,7 @@ export function VisitorLayout({ children }: VisitorLayoutProps) {
       <header className="flex justify-between h-16 px-4 sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 md:px-12">
           <div className="flex items-center gap-2">
             <Link href="/" className="flex items-center gap-2">
-              <span className="text-xl font-bold">ArchivePlus</span>
+              <span className="text-xl text-blue-600 font-bold">ArchivePlus</span>
             </Link>
             <nav className="hidden md:flex gap-6 ml-6">
               <Link href="/subjects" className="text-sm font-medium transition-colors hover:text-primary">Sujets</Link>
