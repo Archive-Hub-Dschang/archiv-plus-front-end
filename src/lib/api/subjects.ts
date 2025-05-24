@@ -48,7 +48,11 @@ export async function getSubjectsByLevel(levelId: string): Promise<Subject[]> {
 }
 
 // Récupérer un sujet par son id
-export async function getSubjectById(id: string): Promise<Subject | null> {
-  const subject = subjectsData.find((subject) => subject.id === id);
-  return subject || null;
+export async function getSubjectById(id: string, fieldId?: string, levelId?: string): Promise<Subject | null> {
+  return subjectsData.find(
+    (subject) =>
+      subject.id === id &&
+      (!fieldId || subject.fieldId === fieldId) &&
+      (!levelId || subject.levelId === levelId)
+  ) || null;
 }

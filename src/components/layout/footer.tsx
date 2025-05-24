@@ -10,7 +10,7 @@ export default function Footer() {
         <div className="flex gap-4">
           <Link href="/about" className="hover:underline">À propos</Link>
           <Link href="/contact" className="hover:underline">Contact</Link>
-          <a href="https://github.com/" target="_blank" rel="noopener noreferrer" className="hover:underline">
+          <a href="https://github.com/Archive-Hub-Dschang" target="_blank" rel="noopener noreferrer" className="hover:underline">
             GitHub
           </a>
         </div>
