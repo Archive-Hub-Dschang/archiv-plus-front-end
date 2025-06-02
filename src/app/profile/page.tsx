@@ -6,6 +6,7 @@ import { Avatar, AvatarFallback } from '@/components/ui/avatar'
 import { useAuth } from '@/context/auth-context'
 
 export default function ProfilePage() {
+
     const { user } = useAuth()
     return (
         <UserLayout>
@@ -33,6 +34,7 @@ export default function ProfilePage() {
                         <p className="text-sm text-gray-600"><span className='text-sm'>Email:</span> {user?.email}</p>
                     </section>
                 </div>
+                
             </div>
         </UserLayout>
     )
