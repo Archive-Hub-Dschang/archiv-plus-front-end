@@ -50,10 +50,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       }
 
       const data = await response.json()
-
+      
       const loggedInUser: User = {
         username: data.username,
         email: data.email,
+        role: data.role, 
         jwt: data.jwt
       }
 
@@ -94,6 +95,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       const newUser: User = {
         username: data.username,
         email: data.email,
+        role: "user", 
         jwt: data.jwt
       }
 
