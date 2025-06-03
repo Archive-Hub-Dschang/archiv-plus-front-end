@@ -37,7 +37,7 @@ export default function RegisterPage() {
             toast("Inscription réussie", {
                 description: "Votre compte a été créé avec succès."
             })
-            router.push("/profile")
+            router.push("/")
         } else {
             toast("Erreur d'inscription", {
                 description: "Cet email est déjà utilisé ou une erreur est survenue."

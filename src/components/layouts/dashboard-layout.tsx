@@ -27,7 +27,7 @@ export function DashboardLayout({ children, navigation, variant = "user" }: Dash
   const pathname = usePathname()
 
   const brand = variant === "admin" ? (
-    <span className="rounded-full bg-blue-600 bg-primary px-2 py-1 text-xs text-primary-foreground">Admin</span>
+    <span className="rounded-full bg-blue-600 px-2 py-1 text-xs text-primary-foreground">Admin</span>
   ) : null
 
   return (
@@ -126,7 +126,7 @@ export function DashboardLayout({ children, navigation, variant = "user" }: Dash
         ) : (
           <></>
         )}
-        <main className="flex-1 px-3">{children}</main>
+        <main className="flex justify-center items-center flex-1 px-3">{children}</main>
       </div>
     </div>
   )

@@ -28,7 +28,7 @@ export default function LoginPage() {
 
             if (success) {
                 toast("Connexion réussie", {description: "Vous êtes maintenant connecté."})
-                router.push("/dashboard")
+                router.push("/")
             } else {
                 toast("Erreur de connexion", {description: "Email ou mot de passe incorrect."})
             }
