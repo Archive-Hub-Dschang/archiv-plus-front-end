@@ -5,7 +5,7 @@ import {UserLayout} from "@/components/layouts/user-layout";
 import {VisitorLayout} from "@/components/layouts/visitor-layout";
 
 export default function RootLayout({children}: { children: React.ReactNode }) {
-    const user = useAuth();
+    const { user } = useAuth();
     return (
         <>{user ? (
             <UserLayout>
