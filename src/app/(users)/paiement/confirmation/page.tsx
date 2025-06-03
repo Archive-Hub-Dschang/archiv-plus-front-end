@@ -23,10 +23,10 @@ export default function ConfirmationPaiementPage() {
                                     <strong>Type :</strong> Abonnement semestriel
                                 </p>
                                 <p>
-                                    <strong>Durée :</strong> 6 mois
+                                    <strong>Durée :</strong> un semestre
                                 </p>
                                 <p>
-                                    <strong>Montant :</strong> 15 000 FCFA
+                                    <strong>Montant :</strong> 1 000 FCFA
                                 </p>
                                 <p>
                                     <strong>Statut :</strong> Actif
@@ -70,7 +70,7 @@ export default function ConfirmationPaiementPage() {
                             <Button asChild variant="ghost" className="w-full">
                                 <Link href="/">
                                     <Home className="h-4 w-4 mr-2" />
-                                    Retour à l'accueil
+                                    Retour à l&apos;accueil
                                 </Link>
                             </Button>
                         </div>

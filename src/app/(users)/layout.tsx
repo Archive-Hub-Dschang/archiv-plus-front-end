@@ -1,6 +1,5 @@
 "use client"
 import type React from "react"
-import {Inter} from "next/font/google"
 import {useAuth} from "@/context/auth-context";
 import {UserLayout} from "@/components/layouts/user-layout";
 import {VisitorLayout} from "@/components/layouts/visitor-layout";

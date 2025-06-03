@@ -4,7 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Alert, AlertDescription } from "@/components/ui/alert"
-import { ChevronRight, ChevronLeft, Download, Lock, Calendar, FileText } from "lucide-react"
+import { ChevronRight, ChevronLeft, Download, Lock, Calendar, FileText, Star, Zap, Check } from "lucide-react"
 import Link from "next/link"
 import { useState } from "react"
 
@@ -70,8 +70,8 @@ const typeColors: Record<string, string> = {
 }
 
 export default function EpreuvesPage({ params }: { params: { matiereId: string } }) {
-    const [isLoggedIn, setIsLoggedIn] = useState(false) // Simuler l'état de connexion
-    const [hasSubscription, setHasSubscription] = useState(false) // Simuler l'abonnement
+    const [isLoggedIn, setIsLoggedIn] = useState(false) 
+    const [hasSubscription, setHasSubscription] = useState(false) 
 
     const epreuves = epreuvesData[params.matiereId] || []
     const matiereNom = matieresNoms[params.matiereId] || "Matière"
@@ -107,6 +107,15 @@ export default function EpreuvesPage({ params }: { params: { matiereId: string }
         // Simulation du téléchargement de la correction
         alert(`Téléchargement de la correction ${epreuveId} en cours...`)
     }
+
+        const avantages = [
+        "Accès illimité à toutes les corrections d'examens",
+        "Téléchargements illimités de sujets et corrections",
+        "Corrections détaillées et expliquées",
+        "Accès prioritaire aux nouveaux contenus",
+        "Support client dédié",
+        "Historique de téléchargements sauvegardé",
+    ]
 
     return (
         <div className="container mx-auto px-4 py-8">
@@ -151,11 +160,11 @@ export default function EpreuvesPage({ params }: { params: { matiereId: string }
 
             {/* Alert pour l'abonnement */}
             {!hasSubscription && (
-                <Alert className="mb-6 border-blue-200 bg-blue-50">
+                <Alert className="mb-6 border-blue-200 bg-blue-50 flex items-center">
                     <Lock className="h-4 w-4" />
                     <AlertDescription>
                         Les corrections sont réservées aux abonnés.
-                        <Link href="/abonnement" className="text-blue-600 hover:underline ml-1">
+                        <Link href="#abonnement" className="text-blue-600 hover:underline ml-1">
                             Découvrez notre abonnement semestriel
                         </Link>
                     </AlertDescription>
@@ -190,7 +199,7 @@ export default function EpreuvesPage({ params }: { params: { matiereId: string }
                                         <Button
                                             onClick={() => handleDownloadSubject(epreuve.id)}
                                             disabled={!epreuve.sujetDisponible}
-                                            className="flex-1"
+                                            className="flex-1 bg-blue-600 hover:bg-blue-500"
                                         >
                                             <Download className="h-4 w-4 mr-2" />
                                             {epreuve.sujetDisponible ? "Télécharger le sujet" : "Sujet indisponible"}
@@ -211,7 +220,7 @@ export default function EpreuvesPage({ params }: { params: { matiereId: string }
                                                 <Button asChild variant="outline" className="flex-1">
                                                     <Link href="/abonnement">
                                                         <Lock className="h-4 w-4 mr-2" />
-                                                        S'abonner pour la correction
+                                                        S&apos;abonner pour la correction
                                                     </Link>
                                                 </Button>
                                             )
@@ -234,6 +243,52 @@ export default function EpreuvesPage({ params }: { params: { matiereId: string }
                     <p className="text-gray-500">Aucune épreuve disponible pour cette matière.</p>
                 </div>
             )}
+
+            <section id="abonnement"  className="py-16">
+                <div className="container mx-auto px-4">
+                    <div className="max-w-lg mx-auto">
+                        <Card className="border-2 border-blue-200 shadow-xl">
+                            <CardHeader className="text-center bg-gradient-to-r bg-blue-600 text-white rounded-t-lg">
+                                <div className="flex items-center justify-center gap-2 mb-2">
+                                    <Star className="h-6 w-6" />
+                                    <CardTitle className="text-2xl">Abonnement Semestriel</CardTitle>
+                                </div>
+                                <CardDescription className="text-blue-100">Accès complet pendant un semestre</CardDescription>
+                                <div className="mt-4">
+                                    <span className="text-4xl font-bold">1 000</span>
+                                    <span className="text-xl ml-2">FCFA</span>
+                                    <p className="text-blue-100 mt-2">pour un semestre d&apos;accès</p>
+                                </div>
+                            </CardHeader>
+                            <CardContent className="p-8">
+                                <div className="space-y-4 mb-8">
+                                    {avantages.map((avantage, index) => (
+                                        <div key={index} className="flex items-start gap-3">
+                                            <Check className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
+                                            <span className="text-gray-700">{avantage}</span>
+                                        </div>
+                                    ))}
+                                </div>
+
+                                <Button
+                                    asChild
+                                    size="lg"
+                                    className="w-full bg-gradient-to-r bg-blue-600 hover:bg-blue-500"
+                                >
+                                    <Link href="/paiement/initier">
+                                        <Zap className="h-5 w-5 mr-2" />
+                                        Payer avec Mobile Money
+                                    </Link>
+                                </Button>
+
+                                <p className="text-center text-sm text-gray-500 mt-4">
+                                    Paiement sécurisé • Activation immédiate • Annulation possible
+                                </p>
+                            </CardContent>
+                        </Card>
+                    </div>
+                </div>
+            </section>
         </div>
     )
 }

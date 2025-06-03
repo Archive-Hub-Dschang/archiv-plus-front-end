@@ -1,14 +1,33 @@
 "use client"
-import {Button} from "@/components/ui/button"
-import {Card, CardDescription, CardHeader, CardTitle} from "@/components/ui/card"
-import {BookOpen, Download, Users, Star} from "lucide-react"
+import { Button } from "@/components/ui/button"
+import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { BookOpen, Download, Users, Star } from "lucide-react"
 import Link from "next/link"
-import {VisitorLayout} from "@/components/layouts/visitor-layout";
-import {useAuth} from "@/context/auth-context";
-import {UserLayout} from "@/components/layouts/user-layout";
+import { VisitorLayout } from "@/components/layouts/visitor-layout";
+import { useAuth } from "@/context/auth-context";
+import { UserLayout } from "@/components/layouts/user-layout";
 
 export default function HomePage() {
     const user = useAuth()
+
+    const cardItems = [
+        {
+            icon: <Download className="h-12 w-12 text-blue-600 mb-4" />,
+            title: "Sujets gratuits",
+            description: "Téléchargez gratuitement tous les sujets d'examens sans inscription",
+        },
+        {
+            icon: <Star className="h-12 w-12 text-purple-600 mb-4" />,
+            title: "Corrections détaillées",
+            description: "Accédez aux corrections complètes avec un abonnement semestriel",
+        },
+        {
+            icon: <Users className="h-12 w-12 text-green-600 mb-4" />,
+            title: "Navigation guidée",
+            description: "Trouvez facilement vos documents grâce à notre navigation progressive",
+        },
+    ];
+
     if (user) {
         return (
             <UserLayout>
@@ -18,21 +37,19 @@ export default function HomePage() {
                         <div className="container mx-auto px-4 text-center">
                             <h1 className="text-5xl font-bold mb-6">ArchivPlus</h1>
                             <p className="text-xl mb-8 max-w-2xl mx-auto">
-                                La plateforme de référence pour accéder aux sujets d&apos;examens universitaires et
-                                leurs
-                                corrections
+                                La plateforme de référence pour accéder aux sujets d&apos;examens de l&apos;université de Dschang et leurs corrections
                             </p>
                             <div className="flex gap-4 justify-center">
                                 <Button asChild size="lg" className="bg-white text-blue-600 hover:bg-gray-100">
                                     <Link href="/facultes">
-                                        <BookOpen className="mr-2 h-5 w-5"/>
+                                        <BookOpen className="mr-2 h-5 w-5" />
                                         Commencer maintenant
                                     </Link>
                                 </Button>
 
                                 <Button asChild size="lg" className="bg-white text-blue-600 hover:bg-gray-100">
                                     <Link href="/abonnements">
-                                        <BookOpen className="mr-2 h-5 w-5"/>
+                                        <BookOpen className="mr-2 h-5 w-5" />
                                         Decouvrir nos abonnements
                                     </Link>
                                 </Button>
@@ -48,7 +65,7 @@ export default function HomePage() {
                             <div className="grid md:grid-cols-3 gap-8">
                                 <Card>
                                     <CardHeader>
-                                        <Download className="h-12 w-12 text-blue-600 mb-4"/>
+                                        <Download className="h-12 w-12 text-blue-600 mb-4" />
                                         <CardTitle>Sujets gratuits</CardTitle>
                                         <CardDescription>Téléchargez gratuitement tous les sujets d&apos;examens sans
                                             inscription</CardDescription>
@@ -57,7 +74,7 @@ export default function HomePage() {
 
                                 <Card>
                                     <CardHeader>
-                                        <Star className="h-12 w-12 text-purple-600 mb-4"/>
+                                        <Star className="h-12 w-12 text-purple-600 mb-4" />
                                         <CardTitle>Corrections détaillées</CardTitle>
                                         <CardDescription>Accédez aux corrections complètes avec un abonnement
                                             semestriel</CardDescription>
@@ -66,7 +83,7 @@ export default function HomePage() {
 
                                 <Card>
                                     <CardHeader>
-                                        <Users className="h-12 w-12 text-green-600 mb-4"/>
+                                        <Users className="h-12 w-12 text-green-600 mb-4" />
                                         <CardTitle>Navigation guidée</CardTitle>
                                         <CardDescription>Trouvez facilement vos documents grâce à notre navigation
                                             progressive</CardDescription>
@@ -150,21 +167,19 @@ export default function HomePage() {
                         <div className="container mx-auto px-4 text-center">
                             <h1 className="text-5xl font-bold mb-6">ArchivPlus</h1>
                             <p className="text-xl mb-8 max-w-2xl mx-auto">
-                                La plateforme de référence pour accéder aux sujets d&apos;examens universitaires et
-                                leurs
-                                corrections
+                                La plateforme de référence pour accéder aux sujets d&apos;examens de l&apos;université de Dschang et leurs corrections
                             </p>
                             <div className="flex gap-4 justify-center">
                                 <Button asChild size="lg" className="bg-white text-blue-600 hover:bg-gray-100">
                                     <Link href="/facultes">
-                                        <BookOpen className="mr-2 h-5 w-5"/>
+                                        <BookOpen className="mr-2 h-5 w-5" />
                                         Commencer maintenant
                                     </Link>
                                 </Button>
 
                                 <Button asChild size="lg" className="bg-white text-blue-600 hover:bg-gray-100">
                                     <Link href="/abonnements">
-                                        <BookOpen className="mr-2 h-5 w-5"/>
+                                        <BookOpen className="mr-2 h-5 w-5" />
                                         Decouvrir nos abonnements
                                     </Link>
                                 </Button>
@@ -174,36 +189,20 @@ export default function HomePage() {
                     </section>
 
                     {/* Features Section */}
-                    <section className="py-16 bg-gray-50">
+                    <section className="px-4 md:px-8 py-16 bg-gray-50">
                         <div className="container mx-auto px-4">
                             <h2 className="text-3xl font-bold text-center mb-12">Pourquoi choisir ArchivPlus ?</h2>
                             <div className="grid md:grid-cols-3 gap-8">
-                                <Card>
-                                    <CardHeader>
-                                        <Download className="h-12 w-12 text-blue-600 mb-4"/>
-                                        <CardTitle>Sujets gratuits</CardTitle>
-                                        <CardDescription>Téléchargez gratuitement tous les sujets d&apos;examens sans
-                                            inscription</CardDescription>
-                                    </CardHeader>
-                                </Card>
+                                {cardItems.map((item, index) => (
+                                    <Card key={index}>
+                                        <CardHeader>
+                                            {item.icon}
+                                            <CardTitle>{item.title}</CardTitle>
+                                            <CardDescription>{item.description}</CardDescription>
+                                        </CardHeader>
+                                    </Card>
+                                ))}
 
-                                <Card>
-                                    <CardHeader>
-                                        <Star className="h-12 w-12 text-purple-600 mb-4"/>
-                                        <CardTitle>Corrections détaillées</CardTitle>
-                                        <CardDescription>Accédez aux corrections complètes avec un abonnement
-                                            semestriel</CardDescription>
-                                    </CardHeader>
-                                </Card>
-
-                                <Card>
-                                    <CardHeader>
-                                        <Users className="h-12 w-12 text-green-600 mb-4"/>
-                                        <CardTitle>Navigation guidée</CardTitle>
-                                        <CardDescription>Trouvez facilement vos documents grâce à notre navigation
-                                            progressive</CardDescription>
-                                    </CardHeader>
-                                </Card>
                             </div>
                         </div>
                     </section>
@@ -273,5 +272,4 @@ export default function HomePage() {
             </VisitorLayout>
         )
     }
-    return
 }

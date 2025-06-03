@@ -43,7 +43,7 @@ export default function InitierPaiementPage() {
             <div className="container mx-auto px-4 max-w-2xl">
                 {/* Header */}
                 <div className="text-center mb-8">
-                    <h1 className="text-3xl font-bold mb-4">Finaliser votre abonnement</h1>
+                    <h1 className="text-3xl font-bold mb-4 text-blue-600">Finaliser votre abonnement</h1>
                     <p className="text-gray-600">Effectuez votre paiement via Mobile Money pour activer votre abonnement</p>
                 </div>
 
@@ -59,11 +59,11 @@ export default function InitierPaiementPage() {
                         <div className="space-y-3">
                             <div className="flex justify-between">
                                 <span>Abonnement semestriel ArchivPlus</span>
-                                <span className="font-semibold">15 000 FCFA</span>
+                                <span className="font-semibold">1 000 FCFA</span>
                             </div>
                             <div className="flex justify-between text-sm text-gray-600">
                                 <span>Durée</span>
-                                <span>6 mois</span>
+                                <span>un semestre</span>
                             </div>
                             <div className="flex justify-between text-sm text-gray-600">
                                 <span>Accès</span>
@@ -72,7 +72,7 @@ export default function InitierPaiementPage() {
                             <hr />
                             <div className="flex justify-between text-lg font-bold">
                                 <span>Total</span>
-                                <span>15 000 FCFA</span>
+                                <span>1 000 FCFA</span>
                             </div>
                         </div>
                     </CardContent>
@@ -101,9 +101,8 @@ export default function InitierPaiementPage() {
                                         <SelectValue placeholder="Sélectionnez votre opérateur" />
                                     </SelectTrigger>
                                     <SelectContent>
-                                        <SelectItem value="orange">Orange Money</SelectItem>
-                                        <SelectItem value="mtn">MTN Mobile Money</SelectItem>
-                                        <SelectItem value="moov">Moov Money</SelectItem>
+                                        <SelectItem value="orange money">Orange Money</SelectItem>
+                                        <SelectItem value="mtn money">MTN Mobile Money</SelectItem>
                                     </SelectContent>
                                 </Select>
                             </div>
@@ -144,7 +143,7 @@ export default function InitierPaiementPage() {
                             </div>
 
                             <div className="space-y-4">
-                                <Button type="submit" className="w-full" size="lg" disabled={isProcessing}>
+                                <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-500" size="lg" disabled={isProcessing}>
                                     {isProcessing ? (
                                         <>
                                             <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
@@ -153,7 +152,7 @@ export default function InitierPaiementPage() {
                                     ) : (
                                         <>
                                             <Smartphone className="h-4 w-4 mr-2" />
-                                            Payer 15 000 FCFA
+                                            Payer 1 000 FCFA
                                         </>
                                     )}
                                 </Button>
