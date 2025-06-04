@@ -1,15 +1,18 @@
+"use client"
+
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { ChevronRight, ChevronLeft, GraduationCap } from "lucide-react"
+import { ChevronRight, GraduationCap } from "lucide-react"
 import Link from "next/link"
+import { cn } from "@/lib/utils"
+import Header from "@/components/ui/facDepHeader"
+import { useEffect, useState } from "react"
 
 // Données simulées des départements par faculté
 const departementsData: Record<string, any[]> = {
     "1": [
-        { id: 1, nom: "Mathématiques", description: "Algèbre, Analyse, Géométrie", filieres: 4 },
-        { id: 2, nom: "Informatique", description: "Programmation, Réseaux, IA", filieres: 6 },
-        { id: 3, nom: "Physique", description: "Mécanique, Thermodynamique, Optique", filieres: 3 },
-        { id: 4, nom: "Chimie", description: "Chimie organique, Chimie minérale", filieres: 3 },
+        { id: 1, nom: "Mathématiques-Informatique", description: "Informatique, Mathematique", filieres: 2 },
+        { id: 3, nom: "Physique", description: "Mécanique, Thermodynamique, Optique", filieres: 1 },
+        { id: 4, nom: "Chimie", description: "Chimie organique, Chimie minérale", filieres: 1 },
     ],
     "2": [
         { id: 5, nom: "Médecine Générale", description: "Formation médicale générale", filieres: 2 },
@@ -24,7 +27,7 @@ const departementsData: Record<string, any[]> = {
 }
 
 const facultesNoms: Record<string, string> = {
-    "1": "Faculté des Sciences et Techniques",
+    "1": "Faculté des Sciences",
     "2": "Faculté de Médecine",
     "3": "Faculté des Sciences Économiques et de Gestion",
 }
@@ -32,9 +35,17 @@ const facultesNoms: Record<string, string> = {
 export default function DepartementsPage({ params }: { params: { faculteId: string } }) {
     const departements = departementsData[params.faculteId] || []
     const faculteNom = facultesNoms[params.faculteId] || "Faculté"
+    const [isLoading, setIsLoading] = useState(false)
 
+    useEffect(()=>{
+        setIsLoading(true)
+        setTimeout(()=>setIsLoading(false), 1000)
+    },[])
+    if(isLoading){
+        return <div className="size-full flex justify-center items-center">Chargement..</div>
+    }
     return (
-        <div className="container mx-auto px-4 py-8">
+        <div className="container mx-auto px-4 py-8 md:px-12 lg:h-[calc(100dvh-128px)]">
             {/* Breadcrumb */}
             <div className="flex items-center space-x-2 text-sm text-gray-600 mb-6">
                 <Link href="/facultes" className="hover:text-blue-600">
@@ -45,26 +56,18 @@ export default function DepartementsPage({ params }: { params: { faculteId: stri
             </div>
 
             {/* Header */}
-            <div className="mb-8">
-                <div className="flex items-center justify-between">
-                    <div>
-                        <h1 className="text-3xl font-bold mb-4">Départements</h1>
-                        <p className="text-gray-600">Sélectionnez le département correspondant à votre spécialité.</p>
-                    </div>
-                    <Button asChild variant="outline">
-                        <Link href="/facultes">
-                            <ChevronLeft className="h-4 w-4 mr-2" />
-                            Retour aux facultés
-                        </Link>
-                    </Button>
-                </div>
-            </div>
+            <Header 
+                title="Départements" 
+                description="Sélectionnez le département correspondant à votre spécialité."
+                link="/facultes"
+                linkText="Retour aux facultés"
+            />
 
             {/* Départements Grid */}
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {departements.map((departement) => (
-                    <Link key={departement.id} href={`/departements/${departement.id}/filieres`}>
-                        <Card className="h-full hover:shadow-lg transition-shadow cursor-pointer group">
+                    <Link key={departement.id} href={`${departement.id===1?`/departements/${departement.id}/filieres`:""}`}>
+                        <Card className={cn("h-full hover:shadow-lg transition-shadow cursor-pointer group", departement.id ===1 ? "":"opacity-40")}>
                             <CardHeader>
                                 <div className="flex items-start justify-between">
                                     <GraduationCap className="h-8 w-8 text-purple-600 mb-2" />
