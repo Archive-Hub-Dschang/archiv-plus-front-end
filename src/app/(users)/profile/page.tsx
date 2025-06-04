@@ -3,11 +3,16 @@
 import React from 'react'
 import {Avatar, AvatarFallback} from '@/components/ui/avatar'
 import {useAuth} from '@/context/auth-context'
+import { useRouter } from 'next/navigation'
 
 export default function ProfilePage() {
 
     const {user} = useAuth()
+    const router = useRouter()
 
+    if(!user){
+        return router.push("/login")
+    }
     return (
         <div className="flex flex-col p-3 lg:flex-row gap-5 size-full">
             <div
