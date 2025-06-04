@@ -8,8 +8,8 @@ import { useRouter } from 'next/navigation'
 export default function AdminPage() {
     const { user } = useAuth()
     const router = useRouter()
-    if(user?.role !== "admin")
-        router.push("/")
+    // if(user?.role !== "admin")
+    //     router.push("/")
     return (
         <AdminLayout>
             <div className='size-full flex flex-col items-center justify-center p-4'>

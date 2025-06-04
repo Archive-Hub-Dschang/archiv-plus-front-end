@@ -16,9 +16,9 @@ export function AdminLayout({ children }: AdminLayoutProps) {
     { name: "Sujets", href: "/admin/exams", icon: Book },
     { name: "Corrections", href: "/admin/corrections", icon: FileText },
     { name: "Départements", href: "/admin/departments", icon: Folder },
-    { name: "Filières", href: "/admin/fields", icon: Graduation },
+    { name: "Filières", href: "/admin/#", icon: Graduation },
     { name: "Niveaux", href: "/admin/levels", icon: BarChart },
-    { name: "Matières", href: "/admin/subjects", icon: Book },
+    { name: "Matières", href: "/admin/#", icon: Book },
     { name: "Paramètres", href: "#", icon: Settings },
   ]
 
