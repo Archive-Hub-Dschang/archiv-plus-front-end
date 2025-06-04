@@ -1,3 +1,4 @@
+import AddFile from '@/components/admin/addFile'
 import { UserListItem } from '@/components/admin/userListItem'
 import { AdminLayout } from '@/components/layouts/admin-layout'
 import React from 'react'
@@ -49,6 +50,7 @@ const userMocks = [
 export default function page() {
     return (
         <AdminLayout>
+          <AddFile text='Ajouter un utilisateur' link='#'/>
             {userMocks.map((user) => (
               <div className='max-sm:px-4' key={user.id}>
                 <UserListItem name={user.name} id={user.id} startDate={user.startDate} endDate={user.endDate}/>

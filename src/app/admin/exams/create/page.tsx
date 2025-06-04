@@ -37,7 +37,7 @@ export default function AdminExamForm() {
     setIsLoading(true)
     try {
       // Envoie au backend
-      const res = await fetch(`${process.env.NEXT_PUBLIC_DOCS_URL}/exams`, {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_DOCS_URL}/academics/exams`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

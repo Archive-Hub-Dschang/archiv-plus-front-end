@@ -52,7 +52,7 @@ export default function ExamList() {
   return (
     <AdminLayout>
       <AddFile text="Ajouter un examen" link="/admin/exams/create" />
-      {mockExams.map((exam) => (
+      {mockExams.sort((a,b)=>a.subjectId.localeCompare(b.subjectId)).map((exam) => (
         <div className="max-sm:px-4" key={exam.id}>
           <ExamItem exam={exam} />
         </div>
