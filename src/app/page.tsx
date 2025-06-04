@@ -49,7 +49,7 @@ export default function HomePage() {
                                     </Button>
 
                                     <Button asChild size="lg" className="bg-white text-blue-600 hover:bg-gray-100 max-sm:w-64">
-                                        <Link href="/abonnements">
+                                        <Link href="/#">
                                             <BookOpen className="mr-2 h-5 w-5" />
                                             Decouvrir nos abonnements
                                         </Link>
