@@ -10,12 +10,12 @@ import { usePathname } from "next/navigation"
 
 // Données simulées des filières par département
 const filieresData: Record<string, any[]> = {
-    "1": [
+    "2": [
         { id: 1, nom: "Licence Mathématiques", description: "L1, L2, L3 Mathématiques", matieres: 12 },
         { id: 2, nom: "Master Mathématiques Appliquées", description: "M1, M2 Maths Appliquées", matieres: 8 },
         { id: 3, nom: "Master Statistiques", description: "M1, M2 Statistiques", matieres: 10 },
     ],
-    "2": [
+    "1": [
         { id: 4, nom: "Licence Informatique", description: "L1, L2, L3 Informatique", matieres: 15 },
         { id: 5, nom: "Master Génie Logiciel", description: "M1, M2 Génie Logiciel", matieres: 12 },
         { id: 6, nom: "Master Intelligence Artificielle", description: "M1, M2 IA", matieres: 10 },
@@ -24,8 +24,8 @@ const filieresData: Record<string, any[]> = {
 }
 
 const departementsNoms: Record<string, string> = {
-    "1": "Mathématiques",
-    "2": "Informatique",
+    "2": "Mathématiques",
+    "1": "Informatique",
 }
 
 export default function FilieresPage({ params }: { params: { departementId: string } }) {

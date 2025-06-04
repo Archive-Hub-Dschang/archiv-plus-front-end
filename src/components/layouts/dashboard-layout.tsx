@@ -70,7 +70,7 @@ export function DashboardLayout({ children, navigation, variant = "user" }: Dash
           </div>
 
           <div className="flex items-center gap-4">
-            <div className="flex items-center gap-2">
+            <Link href="/profile" className="flex items-center gap-2">
               <SearchInput isSearchOpen={isSearchOpen} setIsSearchOpen={setIsSearchOpen} handleSubmit={handleSubmit} handleChange={handleChange} />
               <Avatar>
                 <AvatarFallback className="font-bold">{user?.username?.charAt(0)}</AvatarFallback>
@@ -79,7 +79,7 @@ export function DashboardLayout({ children, navigation, variant = "user" }: Dash
                 <p className="text-sm font-medium">{user?.username}</p>
                 <p className="text-xs text-muted-foreground">{user?.email}</p>
               </div>
-            </div>
+            </Link>
           </div>
         </div>
       </header>

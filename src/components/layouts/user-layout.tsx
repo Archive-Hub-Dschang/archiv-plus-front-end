@@ -9,8 +9,8 @@ interface UserLayoutProps {
 
 const navigation = [
   { name: "Tableau de bord", href: "profile/dashboard", icon: Home },
-  { name: "Sujets", href: "/fields/:fieldId/levels/:levelId/subjects/:subjectId", icon: Book },
-  { name: "Mes téléchargements", href: "profile/downloads", icon: Download },
+  { name: "Sujets", href: "/facultes", icon: Book },
+  { name: "Mes téléchargements", href: "profile/#", icon: Download },
   { name: "Mon profil", href: "/profile", icon: Home },
   { name: "Mes favoris", href: "profile/favorites", icon: Heart }
 ]
