@@ -29,7 +29,7 @@ export default function UploadPdfForm() {
     setIsLoading(true)
     // envoie au backend
     try {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/${formData.examId}/correction`, {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/academics/corrections/${formData.examId}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
