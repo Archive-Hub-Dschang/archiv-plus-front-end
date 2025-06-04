@@ -13,7 +13,7 @@ export default function Levelspage() {
         setIsLoading(true)
         const fetchLevels = async () => {
             try {
-                const response = await fetch(`${process.env.NEXT_PUBLIC_DOCS_URL}/academic/levels`)
+                const response = await fetch(`${process.env.NEXT_PUBLIC_DOCS_URL}/academics/levels`)
                 const levels = await response.json()
                 setLevels(levels)
             } catch (e) {

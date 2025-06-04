@@ -17,7 +17,7 @@ export default function DepartmentPage(){
       setIsLoading(true)
       const fetchDep = async () => {
         try{
-          const response = await fetch(`${process.env.NEXT_PUBLIC_DOCS_URL}/academic/departments`)
+          const response = await fetch(`${process.env.NEXT_PUBLIC_DOCS_URL}/academics/departments`)
           const corrections = await response.json()
           setDepartement(corrections)
         }catch(e){

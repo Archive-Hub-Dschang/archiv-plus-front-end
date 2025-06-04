@@ -40,7 +40,7 @@ export default function FilieresPage({ params }: { params: { departementId: stri
         const fetchFiliere = async () => {
             setIsLoading(true)
             try {
-                const response = await fetch(`http://localhost:8080/api/academic/department${pathname}`)
+                const response = await fetch(`http://localhost:8080/api/academics/department${pathname}`)
                 const filieres = await response.json()
                 setFiliere(filieres)
             } catch (e) {
